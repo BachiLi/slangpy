@@ -170,7 +170,7 @@ void wait_external_semaphore(CUexternalSemaphore ext_sem, uint64_t value, CUstre
     SGL_CU_CHECK(cuWaitExternalSemaphoresAsync(&ext_sem, &params, 1, stream));
 }
 
-#if SGL_WINDOWS
+#if SGL_WINDOWS || SGL_LINUX
 inline int find_device_by_luid(int device_count, const AdapterLUID& luid)
 #else
 inline int find_device_by_luid(int device_count, const AdapterLUID& /*luid*/)
